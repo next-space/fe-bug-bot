@@ -1,4 +1,6 @@
 {
+  "name": "bug-bot",
+  "private": true,
   "scripts": {
     "start": "ts-node src/index.ts"
   },
