@@ -3,6 +3,9 @@ name: Report Bug Status
 on:
   schedule:
     - cron: "0 3 * * *"
+  workflow_dispatch:
+    branches:
+      - master
 
 jobs:
   report:
