@@ -1,6 +1,7 @@
 {
   "name": "bug-bot",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "start": "ts-node src/index.ts"
   },
