@@ -1,0 +1,19 @@
+name: Report Bug Status
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: yarn
+          registry-url: https://npm.pkg.github.com/
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn start
