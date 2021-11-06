@@ -2,7 +2,7 @@ name: Report Bug Status
 
 on:
   schedule:
-    - cron: "0 3 * * *"
+    - cron: 0 3 * * 1-6
   workflow_dispatch:
     branches:
       - master
