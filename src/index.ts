@@ -8,7 +8,8 @@ type Bug = QueryDatabaseResponse["results"][number];
 const AUTH = "secret_5XxNoujYCleefAcSFD95e1NuI8kHwnDozvVh1pWq2c9";
 
 const WEB_HOOK =
-  "https://open.feishu.cn/open-apis/bot/v2/hook/2fcc0f55-0886-4f8f-b401-9edfa1c171d1";
+  "https://open.feishu.cn/open-apis/bot/v2/hook/2e17b162-3d2e-451d-90fe-fcb9dda526af"; // 桌面端群
+  // "https://open.feishu.cn/open-apis/bot/v2/hook/2fcc0f55-0886-4f8f-b401-9edfa1c171d1"; // 前端群
   // "https://open.feishu.cn/open-apis/bot/v2/hook/98d6549e-d41b-4f10-b912-80507fc742a2"; // test group
 
 const notion = new Client({ auth: AUTH });
@@ -20,6 +21,7 @@ async function main() {
 }
 
 async function postMessage(bugs: Bug[]) {
+  const totalStatus = `**活跃 BUG ${bugs.length} 个**`;
   let sprintStatus = "";
   let priorityStatus = "";
   let userStatus = "";
@@ -53,6 +55,14 @@ async function postMessage(bugs: Bug[]) {
         },
       },
       elements: [
+        {
+          tag: "div",
+          text: {
+            content: totalStatus,
+            tag: "lark_md",
+          },
+        },
+        { tag: "hr" },
         {
           tag: "div",
           text: {
