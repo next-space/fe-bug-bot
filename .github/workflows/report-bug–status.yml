@@ -2,8 +2,12 @@ name: Report Bug Status
 
 on:
   schedule:
-    - cron: 0 3 * * 1-6
+      - cron: 0 3 * * 1-6
   workflow_dispatch:
+    inputs:
+      reason:
+        description: 'why you do this'
+        required: true
 
 jobs:
   report:
